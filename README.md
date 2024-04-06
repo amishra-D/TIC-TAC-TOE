@@ -1,2 +1,2 @@
 A BASIC TIC-TAC-TOE APPLICATION WITH ALL THE CONSITIONS POSSIBLE
-! [LOGO] ([image_url](https://ibb.co/SvFwfPM))
+! [LOGO] (https://ibb.co/SvFwfPM)
