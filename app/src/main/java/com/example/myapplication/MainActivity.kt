@@ -3,8 +3,10 @@ package com.example.myapplication
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     private var currentPlayer = "X"
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         if (button.text.isEmpty()) {
             button.text = currentPlayer
             moves++
+            button.setBackgroundColor(getPlayerColor(currentPlayer))
             if (checkWinner()) {
                 announceWinner("$currentPlayer wins!")
             } else if (moves == 9) {
@@ -37,7 +40,18 @@ class MainActivity : AppCompatActivity() {
                 currentPlayer = if (currentPlayer == "X") "O" else "X"
             }
         }
+        var Textview = findViewById<TextView>(R.id.turn)
+        Textview.text = "$currentPlayer'S TURN"
     }
+
+    private fun getPlayerColor(player: String): Int {
+        return if (player == "X") {
+            ContextCompat.getColor(this, R.color.colorPlayerX)
+        } else {
+            ContextCompat.getColor(this, R.color.colorPlayerO)
+        }
+    }
+
 
     private fun checkWinner(): Boolean {
         val winCombinations = arrayOf(
